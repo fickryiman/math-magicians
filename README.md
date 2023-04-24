@@ -289,11 +289,11 @@ Run Github Actions Test
   npm test
 
   npx stylelint "**/*.{css,scss}"
-  npx eslint .
+  npx eslint "**/*.{js,jsx}"
 
   auto fix linter with --fix
   npx stylelint "**/*.{css,scss}" --fix
-  npx eslint . --fix
+  npx eslint "**/*.{js,jsx}" --fix
 ```
 
 ### Deployment
