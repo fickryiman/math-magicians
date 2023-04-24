@@ -47,7 +47,7 @@ It is a Single Page App (SPA) that allows users to:  Make simple calculations an
 ### How to build the "Math Magicians" application?
 I will start by building the core functionality, which is a calculator. At the very beginning my website will contain only the simple UI presented below, but it will be able to perform all math operations.
 <p align="center">
-  <img src="./assets/calculator.png" alt="Calculator" width="300px" />
+  <img src="./public/assets/calculator.png" alt="Calculator" width="300px" />
 </p>
 
 Once the calculator is ready I will use it as a part of a full website that includes 3 sub-pages:
@@ -85,7 +85,7 @@ In this project, I should continue with the development of the Math Magicians ap
 - Inside components, create a new Calculator.js file.
 - In Calculator.js, create a React component that matches this design:
   <p align="center">
-    <img src=".public/assets/calculator.png" alt="Calculator" width="300px" />
+    <img src="./public/assets/calculator.png" alt="Calculator" width="300px" />
   </p>
 - Implement the design only (JSX and CSS)- Develop just the UI of the calculator; the math logic to make it work will be added in the next project.
 - Use functional components
