@@ -37,6 +37,7 @@
       "last 1 safari version"
     ]
   },
+  "homepage": "https://github.com/fickryiman/math-magicians",
   "devDependencies": {
     "@babel/core": "^7.21.4",
     "@babel/eslint-parser": "^7.21.3",
