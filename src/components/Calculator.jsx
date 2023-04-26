@@ -1,6 +1,19 @@
 import './Calculator.css';
+import React, { useState } from 'react';
+import calculate from '../logic/calculate';
 
-function Calculator() {
+const Calculator = () => {
+  const [element, addNewElement] = useState({
+    total: null,
+    next: null,
+    operation: null,
+  });
+
+  const calc = (event) => {
+    const newElement = calculate(element, event.target.textContent);
+    addNewElement(newElement);
+  };
+
   return (
     <div className="calculator">
       <input type="text" className="calculator-screen" value={0} disabled />
