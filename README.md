@@ -246,6 +246,7 @@ In order to run this project you need:
 - node.js version > 12.x
 - IDE (visual studio code, etc)
 - browser (chrome, firefox, edge, safari)
+- install the dependencies
 
 ### Setup
 
