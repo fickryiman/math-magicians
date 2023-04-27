@@ -7,10 +7,15 @@ function Quote() {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const category = 'success';
+  const category = ['amazing', 'anger', 'attitude', 'best', 'business', 'change', 'communications', 'computers', 'cool',
+    'courage', 'dreams', 'education', 'environmental', 'equality', 'experience', 'failure', 'faith', 'family', 'fear', 'forgiveness',
+    'freedom', 'friendship', 'funny', 'great', 'happiness', 'history', 'humor', 'imagination', 'inspirational', 'intelligence', 'knowledge',
+    'leadership', 'learning', 'life', 'love', 'marriage', 'money', 'morning', 'movies', 'success'];
+
+  const random = Math.floor(Math.random() * 10) * 4;
 
   const getQuotes = async () => {
-    const url = `https://api.api-ninjas.com/v1/quotes?category=${category}`;
+    const url = `https://api.api-ninjas.com/v1/quotes?category=${category[random]}`;
     try {
       setLoading(true);
       fetch(url, {
