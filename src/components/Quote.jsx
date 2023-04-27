@@ -28,7 +28,6 @@ function Quote() {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           setQuote(data[0].quote);
           setAuthor(data[0].author);
         });
@@ -36,7 +35,7 @@ function Quote() {
     } catch (error) {
       setLoading(false);
       setErrorMessage(error);
-      console.error(error);
+      console.error(errorMessage);
     }
   };
 
@@ -46,7 +45,6 @@ function Quote() {
 
   const handleClick = () => {
     getQuotes();
-    console.log(errorMessage);
   };
 
   return (
