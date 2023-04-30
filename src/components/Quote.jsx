@@ -1,5 +1,5 @@
 import './Quote.css';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 function Quote() {
   const [quote, setQuote] = useState('');
@@ -39,9 +39,9 @@ function Quote() {
     }
   };
 
-  useEffect(() => {
+  useState(() => {
     getQuotes();
-  }, [setQuote, setLoading]);
+  });
 
   const handleClick = () => {
     getQuotes();
