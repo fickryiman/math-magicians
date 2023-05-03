@@ -52,9 +52,9 @@ function Quote() {
       <h2>
         {quote}
         <span className="author">
-          &nbsp;(
+          &nbsp;
+          ~
           { author}
-          )
         </span>
       </h2>
       <button
