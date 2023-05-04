@@ -39,7 +39,7 @@ function Quote() {
       }
     };
     fetchData();
-  }, []);
+  });
 
   const handleClick = () => {
     const fetchData = async () => {
