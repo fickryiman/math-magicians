@@ -20,7 +20,6 @@ function Quote() {
       const url = `https://api.api-ninjas.com/v1/quotes?category=${category[random]}`;
       const params = {
         method: 'GET',
-        withCredentials: true,
         headers: {
           'X-Api-Key': 'c5cFywTgJ2lZOt0YMl8FPw==e4WI89mcjpo3tZZW',
           'Content-Type': 'application/json',
@@ -39,7 +38,7 @@ function Quote() {
       }
     };
     fetchData();
-  });
+  }, []);
 
   const handleClick = () => {
     const fetchData = async () => {
@@ -47,7 +46,6 @@ function Quote() {
       const url = `https://api.api-ninjas.com/v1/quotes?category=${category[random]}`;
       const params = {
         method: 'GET',
-        withCredentials: true,
         headers: {
           'X-Api-Key': 'c5cFywTgJ2lZOt0YMl8FPw==e4WI89mcjpo3tZZW',
           'Content-Type': 'application/json',
@@ -80,10 +78,10 @@ function Quote() {
             </p>
           </>
         ) : (
-          <h3>
+          <>
             Apologize there is an error when retrieved from API.
             {/* {errorMessage} */}
-          </h3>
+          </>
         )}
       </h2>
       <button
