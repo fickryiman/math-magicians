@@ -229,7 +229,7 @@ In this exercise, you will deploy the Math Magicians app to Render.
 ## 🚀 Live Demo <a name=""></a>
 
 <!-- > Add a link to your deployed project. -->
-- Click the following url for [... Live Demo ...](https://fickryiman.github.io/math-magicians)
+- Click the following url for [... Live Demo ...](https://math-magicians-giuvx85y6-fickryiman.vercel.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
