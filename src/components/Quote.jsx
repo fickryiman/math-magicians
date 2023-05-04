@@ -1,5 +1,5 @@
 import './Quote.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Quote() {
   const [quote, setQuote] = useState('');
@@ -7,55 +7,84 @@ function Quote() {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const category = ['amazing', 'anger', 'attitude', 'best', 'business', 'change', 'communications', 'computers', 'cool',
-    'courage', 'dreams', 'education', 'environmental', 'equality', 'experience', 'failure', 'faith', 'family', 'fear', 'forgiveness',
-    'freedom', 'friendship', 'funny', 'great', 'happiness', 'history', 'humor', 'imagination', 'inspirational', 'intelligence', 'knowledge',
-    'leadership', 'learning', 'life', 'love', 'marriage', 'money', 'morning', 'movies', 'success'];
+  const category = ['amazing', 'anger', 'attitude', 'communications', 'computers', 'cool',
+    'dreams', 'education', 'environmental', 'experience', 'failure', 'family', 'fear', 'forgiveness',
+    'freedom', 'friendship', 'funny', 'great', 'history', 'humor', 'inspirational', 'intelligence', 'knowledge',
+    'learning', 'life', 'love', 'money', 'morning', 'movies', 'success'];
 
-  const random = Math.floor(Math.random() * 10) * 4;
+  const random = Math.floor(Math.random() * 10) * 3;
 
-  const getQuotes = async () => {
-    const url = `https://api.api-ninjas.com/v1/quotes?category=${category[random]}`;
-    try {
+  useEffect(() => {
+    const fetchData = async () => {
       setLoading(true);
-      fetch(url, {
+      const url = `https://api.api-ninjas.com/v1/quotes?category=${category[random]}`;
+      const params = {
         method: 'GET',
         withCredentials: true,
         headers: {
           'X-Api-Key': 'c5cFywTgJ2lZOt0YMl8FPw==e4WI89mcjpo3tZZW',
           'Content-Type': 'application/json',
         },
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          setQuote(data[0].quote);
-          setAuthor(data[0].author);
-        });
-      setLoading(false);
-    } catch (error) {
-      setLoading(false);
-      setErrorMessage(error);
-      console.error(errorMessage);
-    }
-  };
+      };
 
-  useState(() => {
-    getQuotes();
-  });
+      try {
+        const response = await fetch(url, params);
+        const result = await response.json();
+        setQuote(result[0].quote);
+        setAuthor(result[0].author);
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
+        setErrorMessage(error);
+      }
+    };
+    fetchData();
+  }, []);
 
   const handleClick = () => {
-    getQuotes();
+    const fetchData = async () => {
+      setLoading(true);
+      const url = `https://api.api-ninjas.com/v1/quotes?category=${category[random]}`;
+      const params = {
+        method: 'GET',
+        withCredentials: true,
+        headers: {
+          'X-Api-Key': 'c5cFywTgJ2lZOt0YMl8FPw==e4WI89mcjpo3tZZW',
+          'Content-Type': 'application/json',
+        },
+      };
+
+      try {
+        const response = await fetch(url, params);
+        const result = await response.json();
+        setQuote(result[0].quote);
+        setAuthor(result[0].author);
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
+        setErrorMessage(error);
+      }
+    };
+    fetchData();
   };
 
   return (
     <div className="quote-container">
       <h2>
-        {quote}
-        <span className="author">
-          &nbsp;(
-          { author}
-          )
-        </span>
+        {!errorMessage ? (
+          <>
+            {quote}
+            <p className="author">
+              ~
+              { author}
+            </p>
+          </>
+        ) : (
+          <h3>
+            Apologize there is an error when retrieved from API.
+            {/* {errorMessage} */}
+          </h3>
+        )}
       </h2>
       <button
         type="button"
